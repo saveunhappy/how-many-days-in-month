@@ -1,5 +1,7 @@
 package com.github.hcsp.controlflow;
 
+import cn.hutool.core.date.DateUtil;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println(howManyDaysInMonth(0));
@@ -20,6 +22,10 @@ public class Main {
      * @return 结果字符串
      */
     public static String howManyDaysInMonth(int month) {
-        return "";
+        if (month < 0 || month > 12) {
+            return "非法输入";
+        }
+        int day = DateUtil.lengthOfMonth(month, false);
+        return month + "月有" + day + "天";
     }
 }
